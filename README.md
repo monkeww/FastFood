@@ -394,8 +394,8 @@ cron.schedule('* * * * *', () => {
 ## 🚧 Sviluppi Futuri
 
 ###  Priorità Alta
-- [ ] **Hide/show password** nella registrazione e login
-- [ ] **Fixare il footer** cosi che rimanga fissato in basso
+- [x] **Hide/show password** nella registrazione e login
+- [x] **Fixare il footer** cosi che rimanga fissato in basso
 - [ ] **Categorie custom** per i piatti unici dei ristoranti
 - [ ] **card del menu cliccabili/selezionabili** migliora il flow
 - [ ] **nomi delle tabs** renderle inerenti alla pagina.

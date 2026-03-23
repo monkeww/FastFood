@@ -136,3 +136,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
     });
+
+// password toggle function
+function togglePassword(fieldId) {
+  const field = document.getElementById(fieldId);
+  const icon = document.getElementById('icon-' + fieldId);
+  
+  if (field.type === 'password') {
+    field.type = 'text';
+    icon.classList.remove('bi-eye');
+    icon.classList.add('bi-eye-slash');
+  } else {
+    field.type = 'password';
+    icon.classList.add('bi-eye');
+    icon.classList.remove('bi-eye-slash');
+  }
+}

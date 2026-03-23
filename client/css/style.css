@@ -1,4 +1,5 @@
 
+
 /* colore principale arancione */
 :root {
   --bs-primary: #ff6600;
@@ -829,4 +830,50 @@ main, section {
 
 footer {
   margin-top: auto; /*viene spinto in fondo*/
+}
+
+/* password toggle (mostra/ nascodi ) sile per far restare l'icona dentor nel field*/
+
+
+/* cursor pointer utility, manina che indica */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.input-group {
+  border: 4px solid #ffd500 !important;
+  border-radius: 40px !important;
+  background: white !important;
+  padding: 0 !important;
+}
+
+.input-group .form-control {
+  border: none !important;
+  border-radius: 40px 0 0 40px !important;
+  padding: 0.75rem 1rem !important;
+  box-shadow: none !important;
+}
+
+.input-group .form-control:focus {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.input-group .input-group-text {
+  border: none !important;
+  border-radius: 0 40px 40px 0 !important;
+  background: transparent !important;
+  padding: 0.75rem 1rem !important;
+  cursor: pointer;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-group .bi {
+  font-size: 1.3rem;
+  color: #ff6600;
+  line-height: 1;
+  margin: 0;
 }
