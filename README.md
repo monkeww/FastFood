@@ -398,7 +398,7 @@ cron.schedule('* * * * *', () => {
 - [x] **Fixare il footer** cosi che rimanga fissato in basso
 - [ ] **Categorie custom** per i piatti unici dei ristoranti
 - [ ] **card del menu cliccabili/selezionabili** migliora il flow
-- [ ] **nomi delle tabs** renderle inerenti alla pagina.
+- [x] **nomi delle tabs** renderle inerenti alla pagina.
 - [ ] **optional preferenze** modal nella registrazione utente
 - [ ] **pulire storico ordini** e filtro per stato
 
@@ -425,7 +425,7 @@ cron.schedule('* * * * *', () => {
 
 ---
 
-*Ultima modifica: 23 Febbraio 2026*
+*Ultima modifica: Marzo 2026*
 
 ## 🍴 Descrizione
 Piattaforma di food delivery con gestione ordini, carrello e timer automatici.
