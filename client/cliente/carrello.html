@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍴 FastFood</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="../css/style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <style>
+    body { opacity: 0; }
+    body.auth-verified { opacity: 1; transition: opacity 0.3s; }
+   </style>
+</head>
+<body>
+ 
+  <!-- header / navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html" style="color: #e30000"> <b>🍴 FAST FOOD</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="ristoranti.html">Ristoranti</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrello.html">Carrello</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="profilo.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profilo</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="ordini.html">Ordini</a></li>
+                <li><a class="dropdown-item" href="profilo.html">Dettagli Account</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" role="button" onclick="logout()">Logout</a></li>
+            </ul>
+           </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <header class="bg-primary text-white text-center py-5">
+    <h1>Carrello</h1>
+    <p>procedi al checkout</p>
+  </header>
+
+  <div class="container my-5">
+    <div class="row">
+      <!-- colonna sinistra - items del carrello -->
+      <div class="col-lg-8 mb-4">
+        <div class="card shadow bordo-arancione rounded-4">
+          <div class="card-header bg-primary text-white rounded-top">
+            <h4 class="mb-0">🛒 Il tuo ordine</h4>
+            <small id="ristoranteInfo"></small>
+          </div>
+          <div class="card-body">
+            <!-- lista items carrello -->
+            <div id="carelloItemsContainer">
+              <!-- generato dinamicamente -->
+            </div>
+            
+            <!-- messaggio carrello vuoto -->
+            <div id="carrelloVuoto" class="text-center py-5" style="display: none;">
+              <h4 class="mt-3 text-muted">Il carrello è vuoto</h4>
+              <p class="text-muted">Inizia ad aggiungere piatti dal menu!</p>
+              <a href="ristoranti.html" class="btn btn-primary mt-3">
+                Cerca Ristoranti
+              </a>
+            </div>
+          </div>
+          
+          <!-- footer con pulsante continua a ordinare -->
+          <div class="card-footer border-0 bg-white" id="continuaOrdinare" style="display: none;">
+            <a href="#" id="tornaAlMenu" class="btn btn-outline-primary">
+              ← Continua a ordinare
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- colonna destra - Riepilogo e checkout -->
+      <div class="col-lg-4">
+        <div class="card shadow bordo-arancione rounded-4 sticky-top" style="top: 20px;" id="checkoutCard">
+          <div class="card-body">
+            <h4 class="mb-3 text-center colore-arancione fw-bold">Riepilogo Ordine</h4>
+            
+            <!-- totale -->
+            <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+              <h5>Totale:</h5>
+              <h5 class="colore-arancione" id="totaleOrdine">€ 0.00</h5>
+            </div>
+            
+            <!-- metodo di pagamento -->
+            <h6 class="mb-3">Metodo di Pagamento</h6>
+            <div class="mb-3">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="metodoPagamento" id="pagamentoContanti" value="contanti" checked>
+                <label class="form-check-label" for="pagamentoContanti">
+                  💵 Contanti
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="metodoPagamento" id="pagamentoCarta" value="carta">
+                <label class="form-check-label" for="pagamentoCarta">
+                  💳 Carta di credito
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="metodoPagamento" id="pagamentoPaypal" value="paypal">
+                <label class="form-check-label" for="pagamentoPaypal">
+                  🅿️ PayPal
+                </label>
+              </div>
+            </div>
+            
+            <!-- campi extra per carta -->
+            <div id="campiCarta" style="display: none;">
+              <div class="mb-2">
+                <label class="form-label small">Circuito</label>
+                <select class="form-select form-select-sm" id="circuitoCarta">
+                  <option value="visa">Visa</option>
+                  <option value="mastercard">Mastercard</option>
+                  <option value="amex">American Express</option>
+                </select>
+              </div>
+              <div class="mb-2">
+                <label class="form-label small">Numero carta (ultime 4 cifre)</label>
+                <input type="text" class="form-control form-control-sm" id="numeroCarta" placeholder="****" maxlength="4">
+              </div>
+            </div>
+            
+            <!-- campo extra per PayPal -->
+            <div id="campiPaypal" style="display: none;">
+              <div class="mb-2">
+                <label class="form-label small">Email PayPal</label>
+                <input type="email" class="form-control form-control-sm" id="emailPaypal" placeholder="email@example.com">
+              </div>
+            </div>
+            
+            <!-- tipo di ordine -->
+            <div class="mb-3">
+              <label class="form-label"><strong>Tipo di ordine</strong></label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoOrdine" id="ritiro" value="ritiro" checked>
+                <label class="form-check-label" for="ritiro">
+                  🏪 Ritiro in loco
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoOrdine" id="domicilio" value="domicilio" disabled>
+                <label class="form-check-label text-muted" for="domicilio">
+                  🚚 Consegna a domicilio <small>(non disponibile)</small>
+                </label>
+              </div>
+            </div>
+            
+            <!-- pulsanti -->
+            <button class="btn btn-primary w-100 mt-3" onclick="procediAlPagamento()">
+              Procedi al Pagamento
+            </button>
+            
+            <button class="btn btn-outline-danger w-100 mt-2" onclick="svuotaCarrelloERefresh()">
+              Svuota Carrello
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container my-5" id="ristorantiContainer">
+</div>
+
+  
+  <footer class="bg-dark text-white text-center py-4">
+    <p>&copy; 2025 FastFood - Tutti i diritti riservati</p>
+  </footer>
+
+  <!-- bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+  <!-- scripts -->
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/cart.js"></script>
+  
+  <!-- inizializzazione pagina
+   cart.js è importato in menu.html E carrello.html -> non può avere DOMContentLoaded generico all interno di cart.js, 
+   altrimenti si rischia di eseguire codice non pertinente alla pagina in cui è importato.
+  esattamente per questo l'inizializzazione della pagina carrello deve stare nell'HTML, mentre gli altri JS hanno 
+  tutto contenuto in se stessi perché sono specifici di una pagina sola.
+
+  cart.js è uno script condiviso, quindi non può avere logica page-specific al suo interno.
+  -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        await caricaCarrello();
+        document.querySelectorAll('input[name="metodoPagamento"]').forEach(radio => {
+            radio.addEventListener('change', mostraCampiPagamento);
+        });
+    });
+
+    /* svuota carrello e ricarica pagina per aggiornare */
+    async function svuotaCarrelloERefresh() {
+        await svuotaCarrello();
+        setTimeout(() => location.reload(), 1000);
+    }
+  </script>
+</body>
+</html>

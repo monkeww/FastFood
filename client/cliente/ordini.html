@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📋 I Miei Ordini - FastFood</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { opacity: 0; }
+    body.auth-verified { opacity: 1; transition: opacity 0.3s; }
+  </style>
+</head>
+<body>
+ 
+  <!-- header / navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html" style="color: #e30000"> <b>🍴 FAST FOOD</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="ristoranti.html">Ristoranti</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrello.html">Carrello</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="profilo.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profilo</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="ordini.html">Ordini</a></li>
+                <li><a class="dropdown-item" href="profilo.html">Dettagli Account</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" role="button" onclick="logout()">Logout</a></li>
+            </ul>
+           </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white text-center py-5">
+    <h1>I miei ordini</h1>
+    <p>...</p>
+  </header>
+
+  <div class="container my-5">
+    <!-- card Ordini in Corso -->
+    <div class="card shadow p-4 bordo-arancione mb-4">
+      <h2 class="mb-4">Ordini in Corso</h2>
+      <div class="card shadow p-3">
+        <div id="ordini-in-corso">
+          <!-- tabella ordini in corso generata dinamicamente -->
+        </div>
+      </div>
+    </div>
+
+    <!-- card storico Ordini -->
+    <div class="card shadow p-4 bordo-arancione">
+      <h2 class="mb-4">Storico Ordini</h2>
+      <div class="card shadow p-3">
+        <div id="ordini-storico">
+          <!-- tabella storico generata dinamicamente -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- modal Dettagli Ordine -->
+  <div class="modal fade modal-dettagli-ordine" id="modalDettaglioOrdine" tabindex="-1" aria-labelledby="modalDettaglioOrdineLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content modal-dettagli-ordine">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalDettaglioOrdineLabel">📋 Dettagli Ordine</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalDettaglioOrdineBody">
+          <!-- contenuto caricato dinamicamente -->
+          <div class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Caricamento...</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" id="modalDettaglioOrdineFooter">
+          <!-- pulsanti azione caricati dinamicamente -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-4 fixed-bottom">
+    <p>&copy; 2025 FastFood - Tutti i diritti riservati</p>
+  </footer>
+
+  <!-- bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/ordini.js"></script>
+</body>
+</html>

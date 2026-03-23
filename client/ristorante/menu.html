@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍴 FastFood</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { opacity: 0; }
+    body.auth-verified { opacity: 1; transition: opacity 0.3s; }
+  </style>
+</head>
+<body>
+ 
+<!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container">
+      <a class="navbar-brand" href="dashboard.html" style="color: #e30000"><b>🍴 FASTFOOD</b>
+      </a>
+      <p class="navbar-text mb-0"><i> per i ristoranti</i></p>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu Ristorante</a></li>
+          <li class="nav-item"><a class="nav-link" href="ordini.html">Ordini</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="profilo.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profilo</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="profilo.html">Dati Ristoratore</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" role="button" onclick="logout()">Logout</a></li>
+            </ul>
+           </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <header class="bg-primary text-white text-center py-5">
+    <h1>Gestione Menu</h1>
+    <p>Aggiungi,modifica o elimina piatti dal tuo menu</p>
+  </header>
+
+    <!--
+        Per ogni prodotto (piatto) in vendita
+    dovranno essere gestiti gli ingredienti da cui composto e dovr`a essere pre
+    sente una foto illustrativa. Si dovranno inoltre gestire informazioni quali
+    tipologia, nome e prezzo. Il ristoratore ha la possibilit`a inoltre di inserire
+    piatti scelti da lui e quindi ha la possibili`a per ognuno di dpecificare ogni
+    possibile informaiozne sopra indicata +prezzo !! (poiche non presente nel json)
+
+    Ricerca dei piatti (le ricerche di base previste sono: tipologia, nome,
+    prezzo);
+
+    -->
+    <!--AGGIUNGI CUSTOM PIATTO -->
+
+
+    <section class="container my-5">
+      <div class="card shadow p-4 bordo-arancione my-5">
+        <h2 class="mb-2">Il tuo menu</h2>
+          <div class="row mt-4" id="menu-ristorante-container">
+        <!-- il menu del ristorante viene caricato qui da JS -->
+          </div>
+          <!-- bottone apertura modal aggiunta piatto personalizzato -->
+    <section class="container my-2 mt-3 text-center">
+      <button id="btnApriModalAggiungiPiattoPersonalizzato" type="button" class="btn btn-lg btn-outline-primary">
+        ➕ Aggiungi Piatto Personalizzato
+      </button>
+    </section>
+      </div>
+
+    </section>
+
+
+    
+    
+
+    <!-- modal Aggiungi Piatto Personalizzato -->
+    <div class="modal fade modal-modifica-dati" id="modalAggiungiPiattoPersonalizzato" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="titoloAggiungiPiatto">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="titoloAggiungiPiatto">➕ Aggiungi Piatto Personalizzato</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+          </div>
+          <div class="modal-body">
+            <form id="aggiungiPiattoForm">
+              <div class="layout-piatto-row">
+                <div class="col-immagine">
+                  <div id="uploadPiattoWidget" class="mb-2"></div>
+                  <p class="text-muted small mb-0">Scegli un file oppure incolla un URL diretto (.jpg, .png, .webp). L'anteprima si aggiorna subito senza lasciare spazi vuoti.</p>
+                </div>
+                <div class="col-campi">
+                  <div class="mb-3">
+                    <input type="text" class="form-control bordo-giallo" id="nomePiatto" placeholder="Nome piatto" required>
+                  </div>
+                  <div class="mb-3">
+                    <select class="form-select bordo-giallo" id="categoriaPiatto" required>
+                      <option value="">Seleziona categoria</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <input type="number" class="form-control bordo-giallo" id="prezzoPiatto" placeholder="Prezzo" min="0" step="0.01" required>
+                  </div>
+                  <div class="mb-3">
+                    <textarea class="form-control bordo-giallo" id="ingredientiPiatto" rows="4" placeholder="Separa gli ingredienti con una virgola" required></textarea>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="mt-3 text-end">
+                <button type="submit" class="btn btn-primary px-4">💾 Salva Piatto</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+  <!-- RICERCA PIATTI (database o personalizzati)
+
+  -->
+    <section class="container my-5">
+    <container class="card shadow p-4 bordo-arancione" id="piatti-comuni-container">
+        <h2 class="mb-3">Aggiungi o Cerca Piatto esistente</h2>
+        <form id="cercaPiattoForm">
+        <div class="row g-3">
+
+            <!-- ricerca per nome -->
+            <div class="col-md-3">
+            <input type="text" class="form-control bordo-giallo" id="cercaNomePiatto" placeholder="Nome del piatto">
+            </div>
+
+            <!-- ricerca per categoria -->
+            <div class="col-md-3">
+            <input type="text" class="form-control bordo-giallo" id="cercaCategoriaPiatto" placeholder="Categoria (es. Chicken, Dessert)">
+            </div>
+
+            <!-- ricerca per origine -->
+            <div class="col-md-2">
+            <input type="text" class="form-control bordo-giallo" id="cercaOriginePiatto" placeholder="Origine (es. Italian)">
+            </div>
+
+            <!-- pulsante ricerca -->
+            <div class="col-md-4 d-grid">
+                <button type="submit" class="btn btn-primary px-4">🔍 Cerca</button>
+            </div>
+
+        </div>
+
+        
+        </form>
+
+        <div class="row mt-4" id="risultatiRicerca">
+          <!-- generato dinamicamente da menu.js -->
+        </div>
+      </div>
+
+      
+    </container>
+</section>
+
+    <!-- versione con un uncia barra di ricerca per le tre cose, meno precisa-->
+     <!--
+    <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" class="form-control" placeholder="Cerca per nome, categoria o prezzo...">
+      </div>
+     -->
+
+
+
+    <div class="container my-5" id="piattiRistoranteContainer">
+    <!-- card ris generate da js. -->
+    </div>
+   
+
+<!--
+<div class="container my-5" id="ristorantiContainer">
+card ris generate da js, mostra i ristoranti disponibili e cambiano in base alla ricerca se fatta. -->
+
+  <!-- modal Modifica Piatto Personalizzato -->
+  <div class="modal fade modal-modifica-dati" id="modalModificaPiattoPersonalizzato" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">✏️ Modifica Piatto Personalizzato</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formModificaPiattoPersonalizzato">
+            <div class="mb-3">
+              <label class="form-label">Immagine</label>
+              <div id="uploadEditPiattoWidget"></div>
+            </div>
+            <input type="hidden" id="editPiattoId">
+            
+            <div class="mb-3">
+              <label for="editNomePiatto" class="form-label">Nome Piatto</label>
+              <input type="text" class="form-control bordo-giallo" id="editNomePiatto" required>
+            </div>
+            
+            <div class="mb-3">
+              <label for="editCategoriaPiatto" class="form-label">Categoria</label>
+              <select class="form-select bordo-giallo" id="editCategoriaPiatto" required>
+                <option value="">Seleziona categoria</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label for="editPrezzoPiatto" class="form-label">Prezzo (€)</label>
+              <input type="number" class="form-control bordo-giallo" id="editPrezzoPiatto" min="0" step="0.01" required>
+            </div>
+            
+            <div class="mb-3">
+              <label for="editIngredientiPiatto" class="form-label">Ingredienti</label>
+              <textarea class="form-control bordo-giallo" id="editIngredientiPiatto" rows="3" required></textarea>
+              <small class="text-muted">Separa con virgole</small>
+            </div>
+            
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+          <button type="button" class="btn btn-primary" onclick="salvaModificaPiattoPersonalizzato()">💾 Salva Modifiche</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal Modifica Prezzo Piatto Database -->
+  <div class="modal fade modal-modifica-dati" id="modalModificaPrezzo" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modifica Prezzo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formModificaPrezzo">
+            <input type="hidden" id="prezzoPiattoId">
+            <div class="mb-3">
+              <label class="form-label">Nome Piatto</label>
+              <p id="prezzoNomePiatto" class="fw-bold"></p>
+            </div>
+            <div class="mb-3">
+              <label for="prezzoNuovoPrezzo" class="form-label">Nuovo Prezzo (€)</label>
+              <input type="number" class="form-control bordo-giallo" id="prezzoNuovoPrezzo" min="0" step="0.01" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+          <button type="button" class="btn btn-primary" onclick="salvaModificaPrezzo()">💾 Salva</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="bg-dark text-white text-center py-4 fixed-bottom">
+    <p>&copy; 2025 FastFood - Tutti i diritti riservati</p>
+  </footer>
+
+  <!-- bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  
+  
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/imageUpload.js"></script>
+  <script src="../js/menu.js?v=11"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍴 FastFood</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="../css/style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+  <!-- header / navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html" style="color: #e30000"> <b>🍴 FAST FOOD</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" id="nav-accedi"><a class="nav-link" href="../login.html">Accedi</a></li>
+          <li class="nav-item"><a class="nav-link" href="ristoranti.html">Ristoranti</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrello.html">Carrello</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="profilo.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profilo</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="ordini.html">Ordini</a></li>
+                <li><a class="dropdown-item" href="profilo.html">Dettagli Account</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" role="button" onclick="logout()">Logout</a></li>
+            </ul>
+           </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- mini Carrello Fluttuante -->
+  <a href="carrello.html" class="mini-carrello" id="miniCarrello">
+    <span class="carrello-icon">🛒</span>
+    <span class="carrello-badge" id="carrelloBadge">0</span>
+  </a>
+
+  <!-- bottone Ordina Ora fluttuante -->
+  <a href="carrello.html" class="btn btn-primary position-fixed btn-ordinaora" id="ordinaOraBtn" 
+     style="bottom: 30px; right: 110px; z-index: 999; display: none;">
+    Ordina ora!
+  </a>
+
+  <!-- header Ristorante -->
+  <header class="bg-primary text-white text-center py-4" id="headerRistorante">
+    <div class="container">
+      <h1 id="nomeRistorante">Caricamento...</h1>
+      <p id="infoRistorante"></p>
+      <a href="ristoranti.html" class="btn btn-outline-light  mt-2">← Torna ai ristoranti</a>
+    </div>
+  </header>
+
+  <!-- menu Container -->
+  <div class="container my-5">
+    <div class="card shadow-sm bordo-arancione">
+      <div class="card-body">
+        <h2 class="text-center mb-4">🍽️ Menu del Ristorante</h2>
+        
+        <!-- loading/Error messages -->
+        <div id="messaggi"></div>
+        
+        <!-- menu Items -->
+        <div id="menu-container" class="row g-4">
+          <!-- le card dei piatti verranno generate dinamicamente da menu.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal Dettagli Piatto (usato da menu.js) -->
+  <div class="modal fade modal-dettagli-piatto" id="dettagliPiattoModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content modal-dettagli-piatto">
+        <!-- contenuto generato dinamicamente -->
+      </div>
+    </div>
+  </div>
+
+  
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <p>&copy; 2025 FastFood - Tutti i diritti riservati</p>
+  </footer>
+
+  <!-- bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  
+  
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/menu.js"></script>
+</body>
+</html>

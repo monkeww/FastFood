@@ -1,0 +1,811 @@
+
+/* colore principale arancione */
+:root {
+  --bs-primary: #ff6600;
+  --bs-primary-rgb: 255, 102, 0;
+}
+
+/* bottoni primari */
+.btn-primary {
+  --bs-btn-bg: #ff6600;
+  --bs-btn-border-color: #ff6600;
+  --bs-btn-hover-bg: #e65c00;
+  --bs-btn-hover-border-color: #e65c00;
+  --bs-btn-active-bg: #cc5200;
+  --bs-btn-active-border-color: #cc5200;
+
+  --bs-btn-disabled-border-color: #cc5200;
+  border-radius: 40px;
+}
+.btn{
+    border-radius: 40px;
+}
+
+.btn-danger{
+    border-radius: 40px;
+}
+.btn-outline-danger{
+    border-radius: 40px;
+}
+
+/* variante outline primaria (per il bottone modifica password nel modal) */
+.btn-outline-primary {
+    color: #ff6600;
+    border: 2px solid #ff6600;
+    border-radius: 40px;
+    font-weight: 600;
+    --bs-btn-color: #ff6600;
+    --bs-btn-border-color: #ff6600;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #ff6600;
+    --bs-btn-hover-border-color: #ff6600;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #cc5200;
+    --bs-btn-active-border-color: #cc5200;
+    --bs-btn-disabled-color: #ff6600;
+    --bs-btn-disabled-border-color: #ff6600;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.btn-outline-primary:hover /*,.btn-outline-primary:focus */
+{
+    background-color: #ff6600;
+    color: #fff;
+    border-color: #ff6600;
+}
+
+.btn-outline-primary:active {
+    background-color: #cc5200;
+    border-color: #cc5200;
+    color: #fff;
+}
+
+.btn-outline-primary:focus-visible {
+    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.35);
+}
+
+/* bottone Ordina Ora fluttuante */
+.btn-ordinaora {
+    padding: 18px 35px !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    border: 3px solid white !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-ordinaora:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/*
+.btn-light:hover,
+.btn-light:focus {
+    background-color: #ffc400;
+    color: #fff;
+}
+    */
+
+.btn-outline-light {
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: transparent;
+    border-radius: 40px;
+    font-weight: 600;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    background-color: #ffffff;
+    color: #ff6600;
+}
+
+/* logout (stile grigio attuale: btn-outline-secondary).  uso questa classe se voglio bordo arancione e bottone bianco. */
+.btn-outline-arancione {
+    color: #ff6600;
+    border: 2px solid #ff6600;
+    background-color: transparent;
+    border-radius: 40px;
+    font-weight: 600;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn-outline-arancione:hover,
+.btn-outline-arancione:focus {
+    background-color: #ffd500;
+    color: #fff;
+}
+.btn-outline-arancione:active {
+    background-color: #cc5200;
+    border-color: #cc5200;
+    color: #fff;
+}
+.btn-outline-arancione:focus-visible {
+    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.35);
+}
+
+/* testi primari */
+.text-primary {
+  color: #ff6600 !important;
+}
+
+/* background primario */
+.bg-primary {
+  background-color: #ff6600 !important;
+}
+
+/*
+.bg-sfondo {
+  background-color: #efefef !important;
+}
+*/
+
+.bordo-arancione {
+    border: 4px solid #ff6600   !important;
+    border-radius: 20px;
+}
+
+.bordo-giallo {
+    border: 4px solid #ffd500   !important;
+    border-radius: 20px;
+}
+
+.bordo-rosso {
+    border: 4px solid #ff6600   !important;
+    
+}
+
+.colore-arancione {
+    color: #ff6600;
+}
+
+/*cards */
+.card {
+  border-radius: 20px; 
+}
+
+/* card altezza fissa per menu ristorante e cliente, per i piatti */
+
+
+
+
+h2{
+    color: #ff6600;
+    font-weight: bold; 
+    position: relative; /*per aggancio elementi che hanno absolute*/
+    padding-bottom: 15px;
+}
+
+
+/* colore sfondo */
+body {
+    /* background-color:#fff7ce !important;*/
+    background-image: url("../img/bg2.jpg") !important;
+    /*background-size: cover;      /* fa adattare l'immagine a tutto lo schermo */
+    background-size: 800px auto;
+    background-repeat: repeat; /* no ripetizione a mosaico*/
+    background-position: center; 
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 80px; /* spazio per il footer */
+}
+
+/*
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); 
+
+  z-index: -10; 
+}
+
+*/
+.navbar {
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+.nav-link:hover {
+    color: #ff6600 !important;
+}
+
+.dropdown-item:hover {
+    background-color: #ff6600;
+    color: white;
+}
+
+.card-menu {
+    min-height: 420px;
+    max-height: 420px; /* uniform height */
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+}
+.card-menu .card-body {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 0.75rem 0.75rem 3.75rem; /* spazio riservato per azioni fissate in basso */
+    position: relative;
+}
+.card-menu .card-actions {
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.90rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+}
+
+.card {
+      border-radius: 20px; 
+    
+    }
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #333333;
+}
+    
+.card-text {
+    color: #777777;
+    min-height: 48px;
+}
+
+
+.prezzo-piatto{
+    color: #ff6600;
+    font-weight: bold;
+    font-size: 25px;
+}
+/*
+.card{
+    background-color: rgba(255, 255, 255, 0.85);
+}
+    */
+
+header {
+     padding: 80px 0;
+    background: linear-gradient( rgba(255, 102, 0, 0.9),rgba(255, 225, 0, 0.86));
+}
+    
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+    
+header p {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+/* ===== STILE MODAL MODIFICA DATI ===== */
+/* modal con lo stesso stile della card di login/registrazione */
+
+.modal-modifica-dati .modal-content {
+    border-radius: 20px;
+    border: 4px solid #ff6600 !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.modal-modifica-dati .modal-header {
+    background: linear-gradient(rgba(255, 102, 0, 0.9), rgba(255, 225, 0, 0.86));
+    color: white;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom: none;
+}
+
+.modal-modifica-dati .modal-header .modal-title {
+    color: white;
+    font-weight: bold;
+}
+
+.modal-modifica-dati .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.modal-modifica-dati .modal-body {
+    padding: 2rem 3rem;
+}
+
+.modal-modifica-dati .form-control {
+    border: 4px solid #ffd500 !important;
+    border-radius: 40px;
+    padding: 0.75rem 1rem;
+}
+
+.modal-modifica-dati .form-control:focus {
+    border-color: #ff6600 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.25);
+}
+
+/* ================== INPUT GLOBALE FASTFOOD ================== */
+/* classe riusabile per tutti i campidei form (login, registrazione, ecc.) */
+.fastfood-input.form-control {
+    border: 4px solid #ffd500;
+    border-radius: 40px !important; /* arrotondato forte coerente */
+    padding: 0.75rem 1rem;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.fastfood-input.form-control:focus {
+    border-color: #ff6600;
+    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.25);
+}
+
+
+
+/* variante disabilitata coerente */
+.fastfood-input.form-control:disabled {
+    background-color: #f8f9fa;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+/*  input prezzo */
+.fastfood-input-prezzo.form-control{
+    border: 4px solid #ffd500;
+    border-radius: 40px !important; /* arrotondato forte coerente */
+    padding: 0.40rem;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.fastfood-input-prezzo.input-group-text {
+    border: 4px solid #ff660000;
+    /*border-radius: 40px !important; /* arrotondato forte coerente */
+    background-color: #fff;
+    color: #ff6600;
+    font-weight: 700;
+    font-size: 20px; 
+}
+
+/* supporto per select con stesso stile */
+.fastfood-input.form-select {
+    border: 4px solid #ffd500;
+    border-radius: 40px !important;
+    padding: 0.65rem 1rem;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.fastfood-input.form-select:focus {
+    border-color: #ff6600;
+    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.25);
+}
+
+.modal-modifica-dati .form-control:disabled,
+.modal-modifica-dati .form-control.bg-light {
+    background-color: #f8f9fa;
+    border-color: #ddd !important;
+    cursor: not-allowed;
+}
+
+.modal-modifica-dati .form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.modal-modifica-dati .text-muted {
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.modal-modifica-dati hr {
+    border-top: 2px solid #ffd500;
+    margin: 1.5rem 0;
+}
+
+.modal-modifica-dati .modal-footer {
+    border-top: none;
+    padding: 1rem 3rem 2rem;
+}
+
+.modal-modifica-dati .btn {
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+}
+
+/* ===== LOADER / SPINNER ===== */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loader .spinner {
+    background: rgba(255, 166, 0, 0);
+    padding: 2rem 3rem;
+    border-radius: 40px;
+    /*box-shadow: 0 4px 20px rgba(119, 58, 0, 0.747);*/
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffd000;
+    text-align: center;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/*
+animazione
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+    */
+
+/* ===== MODAL DETTAGLI PIATTO ===== */
+/* eredita lo stesso stile del modal modifica dati */
+.modal-dettagli-piatto .modal-content {
+    border-radius: 20px;
+    border: 4px solid #ff6600 !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.modal-dettagli-piatto .modal-header {
+    background: linear-gradient(rgba(255, 102, 0, 0.9), rgba(255, 225, 0, 0.86));
+    color: white;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom: none;
+}
+
+.modal-dettagli-piatto .modal-header .modal-title {
+    color: white;
+    font-weight: bold;
+}
+
+.modal-dettagli-piatto .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.modal-dettagli-piatto .modal-body {
+    padding: 2rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-dettagli-piatto .modal-body img {
+    max-height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.modal-dettagli-piatto .modal-body strong {
+    color: #ff6600;
+    font-weight: 600;
+}
+
+.modal-dettagli-piatto .modal-footer {
+    border-top: none;
+    padding: 1rem 2rem;
+}
+
+/* ===== MODAL DETTAGLI ORDINE ===== */
+.modal-dettagli-ordine .modal-content {
+    border-radius: 20px;
+    border: 4px solid #ff6600 !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.modal-dettagli-ordine .modal-header {
+    background: linear-gradient(rgba(255, 102, 0, 0.9), rgba(255, 225, 0, 0.86));
+    color: white;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom: none;
+}
+
+.modal-dettagli-ordine .modal-header .modal-title {
+    color: white;
+    font-weight: bold;
+}
+
+.modal-dettagli-ordine .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.modal-dettagli-ordine .modal-body {
+    padding: 2rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-dettagli-ordine .modal-footer {
+    border-top: none;
+    padding: 1rem 2rem;
+}
+
+/* ===== ICONA DETTAGLI PIATTO ===== */
+.btn-dettagli-piatto {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    margin: 0;
+    z-index: 10;
+    border-radius: 50%;
+    /* si adatta al contenuto come gli altri bottoni (non cerchio) */
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 1rem;
+    font-size: 1rem; /* regola per testo più grande */
+    font-weight: bold;
+    color: #333333;
+    line-height: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: background-color .15s ease, transform .12s ease, box-shadow .12s ease;
+}
+
+.btn-dettagli-piatto svg,
+.btn-dettagli-piatto .icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem; /* lascia spazio tra icona e testo */
+}
+
+.btn-dettagli-piatto:only-child svg,
+.btn-dettagli-piatto:only-child .icon {
+    margin-right: 0; /* se c'è solo l'icona non aggiunge spazio */
+}
+
+/* hover effect per le card dei ristoranti */
+.hover-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: 4px solid #ff6600;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* mini carrello fluttuante */
+.mini-carrello {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ffffff, #ff8533);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-carrello:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 102, 0, 0.6);
+}
+
+.mini-carrello.pulse {
+    animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.carrello-icon {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.carrello-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e30000;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+    border: 2px solid white;
+}
+
+/* controlli quantità nel piatto */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-controls .btn-quantity {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #ff6600;
+    background: white;
+    color: #ff6600;
+    transition: all 0.2s ease;
+}
+
+.quantity-controls .btn-quantity:hover {
+    background: #ff6600;
+    color: white;
+    transform: scale(1.1);
+}
+
+.quantity-controls .btn-remove {
+    border-color: #dc3545;
+    background: #dc3545;
+    color: white;
+}
+
+.quantity-controls .btn-remove:hover {
+    background: #b02a37;
+    color: white;
+}
+
+.quantity-controls .quantity-display {
+    font-weight: 600;
+    min-width: 25px;
+    text-align: center;
+    color: #ff6600;
+}
+
+/* card con piatto nel carrello */
+.card.in-carrello {
+    border: 3px solid #ff6600 !important;
+    box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+    /*transition: all 0.3s ease;*/
+}
+
+/* tick in alto a sinistra */
+.carrello-tick {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #ff6600, #ff8533);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(255, 102, 0, 0.4);
+    z-index: 10;
+    animation: tickAppear 0.3s ease;
+}
+/* animazione per il tick */
+@keyframes tickAppear {
+    0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* ===== LAYOUT MODAL AGGIUNGI PIATTO PERSONALIZZATO ===== */
+.layout-piatto-row, .layout-upload-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center; /* centra i blocchi orizzontalmente */
+}
+.layout-piatto-row .col-campi, .layout-upload-row .col-immagine-profilo, .layout-upload-row .col-note-profilo {
+    flex: 1 1 300px;
+    min-width: 260px;
+}
+.layout-piatto-row .col-immagine, .layout-upload-row .col-immagine-profilo {
+    flex: 0 0 300px;
+    max-width: 340px;
+    margin: 0 auto; /* centra la colonna se isolata */
+}
+.layout-upload-row .col-note-profilo {
+    flex: 1 1 240px;
+    max-width: 320px;
+}
+@media (max-width: 768px) {
+    .layout-upload-row .col-note-profilo { order: 2; }
+    .layout-upload-row .col-immagine-profilo { order: 1; }
+}
+
+/* evita doppio bordo se per errore si annida image-upload-widget dentro un altro */
+.image-upload-widget .image-upload-widget { border: none; padding: 0; background: transparent; }
+.image-upload-widget {
+    background: #f8f9fa;
+    border: 2px dashed #ffd500;
+    padding: .75rem .75rem 1rem;
+    border-radius: 16px;
+    position: relative;
+}
+.image-upload-widget img {
+    height: 180px !important;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+}
+.image-upload-widget .placeholder-preview {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .85rem;
+    color: #666;
+}
+.image-upload-widget input[type="text"],
+.image-upload-widget input[type="file"] {
+    font-size: .85rem;
+}
+.image-upload-widget .switch-mode-btn {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    font-size: .65rem;
+    padding: .25rem .5rem;
+}
+@media (max-width: 768px) {
+    .layout-piatto-row .col-immagine,
+    .layout-upload-row .col-immagine-profilo,
+    .layout-upload-row .col-note-profilo {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}

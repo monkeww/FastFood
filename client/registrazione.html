@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍴 FastFood - Home</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+    <div class="d-flex justify-content-center align-items-center py-5" style="height: 100vh;">
+        <div class="card shadow-lg bordo-rosso" >
+            <div class="card-body mx-5 ">
+                    <div class="text-center mt-5">
+                        <h2 style="color: #FF6600;">Accedi o Registrati</h2>
+                    </div>
+                    <div class="mb-4 mt-4">
+                        <label for="tipoUtente" class="form-label">Registrati come:</label>
+                        <select class="form-select fastfood-input" id="tipoUtente">
+                            <option value="">Seleziona </option>
+                            <option value="cliente">Cliente</option>
+                            <option value="ristorante">Ristorante</option>
+                        </select> 
+                    </div>
+
+                    <form id="formRegistrazione">
+                        <!--campi in comune -->
+                        <div class="row" id="campi-comuni">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control fastfood-input" id="email" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control fastfood-input" id="password" required>
+                                </div>
+                             </div>
+                        </div>
+
+                        <!-- campi per cliente -->
+                        <div id="campi-cliente" class="d-none">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="nome" class="form-label">Nome</label>
+                                        <input type="text" class="form-control fastfood-input" id="nome">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="cognome" class="form-label">Cognome</label>
+                                        <input type="text" class="form-control fastfood-input" id="cognome">
+                                    </div>
+                                </div>
+                            </div>
+
+            
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="telefonoCliente" class="form-label">Telefono</label>
+                                        <input type="tel" class="form-control fastfood-input" id="telefonoCliente">
+                                </div>
+                            </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="indirizzo" class="form-label">Indirizzo</label>
+                                        <input type="text" class="form-control fastfood-input" id="indirizzo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Campi specifici per ristorante -->
+                        <div id="campi-ristorante" class="d-none">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="nomeRistorante" class="form-label">Nome Ristorante</label>
+                                        <input type="text" class="form-control fastfood-input" id="nomeRistorante" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="partitaIva" class="form-label">Partita IVA</label>
+                                        <input type="text" class="form-control fastfood-input" id="partitaIva">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="telefonoRistorante" class="form-label">Telefono</label>
+                                        <input type="tel" class="form-control fastfood-input" id="telefonoRistorante">
+                                    </div>
+                                 </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="indirizzoRistorante" class="form-label">Indirizzo</label>
+                                        <input type="text" class="form-control fastfood-input" id="indirizzoRistorante">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <button type="submit" class="btn btn-lg btn-primary">Registrati</button>
+                        </div>
+                    </form>
+
+                    <div class="d-flex justify-content-center mt-4 mb-4">
+                        <a href="login.html" class="btn btn-lg btn-primary "> <-- Torna ad Accedi</a>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+ 
+    <!-- contenitore, non funzionante 
+
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="card shadow-lg bordo-rosso" >
+            <div class="card-body mx-5">
+                <div class="container mt-5 mb-5">
+                    <h2 style="color: #FF6600;">Accedi o Registrati</h2>
+
+                    <div class="mb-3 mt-3">
+                        <label for="tipoUtente" class="form-label">Registrati come:</label>
+                        <select class="form-select" id="tipoUtente">
+                            <option value="">Seleziona </option>
+                            <option value="cliente">Cliente</option>
+                            <option value="ristorante">Ristorante</option>
+                        </select>
+                        </div>
+
+                    
+                    <form id="formRegistrazione">
+                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3 mt-3">
+                                    <label for="Nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control bordo-giallo" id="nome" required>
+                                </div>
+                            </div>
+                        
+                        
+                            <div class="col-md-6">
+                                <div class="mb-3 mt-3">
+                                    <label for="Cognome" class="form-label">Cognome</label>
+                                    <input type="text" class="form-control bordo-giallo" id="cognome" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 mt-3">
+                                <label for="indirizzo" class="form-label">Indirizzo</label>
+                                <input type="text" class="form-control bordo-giallo" id="indirizzo" required>
+                            </div>
+                        </div>
+
+                        <div class="row"></div>
+                            <div class="col-md-6">
+                                <div class="mb-3 mt-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="text" class="form-control bordo-giallo" id="email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3 mt-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="text" class="form-control bordo-giallo" id="password" required>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="d-flex justify-content-center">
+                        
+                        <button type="submit" class="btn btn-lg btn-primary mt-5">Registrati</button>
+                        
+                    </div>
+                    
+                    </form>
+
+                      
+                    <div class="d-flex justify-content-center mb-5">
+                        <a href="login.html" class="btn btn-lg btn-primary mt-5 mr-3"> <-Torna a Accedi</a>
+                    </div>
+                        
+                    
+
+                </div>
+            </div>
+                
+            
+        </div>
+    </div>
+
+    -->
+
+    
+    
+
+  <!-- bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  
+  
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/registrazione.js"></script>
+   
+</body>
+</html>
